@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mensagem Especial</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .stars {
+      background: url('https://raw.githubusercontent.com/brunoaugustoreis/assets/main/stars.gif') repeat;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+    }
+
+    .moon {
+      background: url('https://raw.githubusercontent.com/brunoaugustoreis/assets/main/moon.png') no-repeat center;
+      background-size: contain;
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      top: 20px;
+      right: 20px;
+      z-index: -1;
+    }
+
+    .mensagem, .envelope, .carta, .flor {
+      display: none;
+      text-align: center;
+    }
+
+    .toque {
+      font-size: 2em;
+      animation: piscar 1s infinite alternate;
+      cursor: pointer;
+    }
+
+    @keyframes piscar {
+      from { opacity: 1; }
+      to { opacity: 0.3; }
+    }
+
+    .envelope img, .flor img {
+      width: 150px;
+      cursor: pointer;
+    }
+
+    .carta p {
+      font-size: 1.5em;
+      margin-top: 20px;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="stars"></div>
+  <div class="moon"></div>
+
+  <div id="etapa1" class="toque">Toque na tela</div>
+
+  <div id="etapa2" class="envelope">
+    <p>Toque no envelope</p>
+    <img src="https://raw.githubusercontent.com/brunoaugustoreis/assets/main/envelope-fechado.png" alt="Envelope Azul">
+  </div>
+
+  <div id="etapa3" class="carta">
+    <p>Obrigado por fazer meus dias especiais 💖<br>Continue brilhando intensamente ✨</p>
+    <p class="toque">Toque para florescer...</p>
+  </div>
+
+  <div id="etapa4" class="flor">
+    <img src="https://raw.githubusercontent.com/brunoaugustoreis/assets/main/lirio.png" alt="Flor Lírio">
+  </div>
+
+  <script>
+    const etapa1 = document.getElementById('etapa1');
+    const etapa2 = document.getElementById('etapa2');
+    const etapa3 = document.getElementById('etapa3');
+    const etapa4 = document.getElementById('etapa4');
+
+    etapa1.addEventListener('click', () => {
+      etapa1.style.display = 'none';
+      etapa2.style.display = 'block';
+    });
+
+    etapa2.querySelector('img').addEventListener('click', () => {
+      etapa2.style.display = 'none';
+      etapa3.style.display = 'block';
+    });
+
+    etapa3.querySelector('.toque').addEventListener('click', () => {
+      etapa3.style.display = 'none';
+      etapa4.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
